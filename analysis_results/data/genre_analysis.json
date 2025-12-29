@@ -1,0 +1,219 @@
+{
+  "genre_counts": {
+    "Drama": 2297,
+    "Comedy": 1722,
+    "Thriller": 1274,
+    "Action": 1154,
+    "Romance": 894,
+    "Adventure": 790,
+    "Crime": 696,
+    "Science Fiction": 535,
+    "Horror": 519,
+    "Family": 513,
+    "Fantasy": 424,
+    "Mystery": 348,
+    "Animation": 234,
+    "History": 197,
+    "Music": 185,
+    "War": 144,
+    "Documentary": 110,
+    "Western": 82,
+    "Foreign": 34,
+    "TV Movie": 8
+  },
+  "genre_combinations": {
+    "Drama": 370,
+    "Comedy": 282,
+    "Comedy, Drama": 188,
+    "Drama, Romance": 185,
+    "Comedy, Drama, Romance": 182,
+    "Comedy, Romance": 164,
+    "Horror, Thriller": 104,
+    "Crime, Drama, Thriller": 92,
+    "Drama, Thriller": 77,
+    "Documentary": 68,
+    "Horror": 64,
+    "Crime, Drama": 59,
+    "Action, Crime, Thriller": 59,
+    "Action, Adventure, Science Fiction": 53,
+    "Action, Adventure, Thriller": 51,
+    "Action, Crime, Drama, Thriller": 51,
+    "Drama, History": 48,
+    "Comedy, Family": 44,
+    "Action, Thriller": 43,
+    "Drama, Mystery, Thriller": 41
+  },
+  "genre_statistics": [
+    {
+      "genre": "Drama",
+      "count": 2297,
+      "avg_revenue": 81968132.70437196,
+      "total_revenue": 118116079227.0,
+      "avg_budget": 30024847.845940318,
+      "avg_rating": 6.59354614850798,
+      "avg_roi": 590702.4214500334
+    },
+    {
+      "genre": "Comedy",
+      "count": 1722,
+      "avg_revenue": 108479364.8036036,
+      "total_revenue": 120412094932.0,
+      "avg_budget": 36155454.915315315,
+      "avg_rating": 6.080630630630631,
+      "avg_roi": 766206.6247135692
+    },
+    {
+      "genre": "Thriller",
+      "count": 1274,
+      "avg_revenue": 110187683.68877006,
+      "total_revenue": 103025484249.0,
+      "avg_budget": 40953930.934759356,
+      "avg_rating": 6.2068449197860955,
+      "avg_roi": 107389.7187121764
+    },
+    {
+      "genre": "Action",
+      "count": 1154,
+      "avg_revenue": 176814910.9324619,
+      "total_revenue": 162316088236.0,
+      "avg_budget": 62390551.72004357,
+      "avg_rating": 6.129193899782136,
+      "avg_roi": 257.90395899706346
+    },
+    {
+      "genre": "Romance",
+      "count": 894,
+      "avg_revenue": 92562470.728223,
+      "total_revenue": 53130858198.0,
+      "avg_budget": 28298663.461672474,
+      "avg_rating": 6.351916376306621,
+      "avg_roi": 408.92320841333793
+    },
+    {
+      "genre": "Adventure",
+      "count": 790,
+      "avg_revenue": 247606542.09984872,
+      "total_revenue": 163667924328.0,
+      "avg_budget": 76892388.8698941,
+      "avg_rating": 6.235249621785174,
+      "avg_roi": 345.8006217847254
+    },
+    {
+      "genre": "Crime",
+      "count": 696,
+      "avg_revenue": 87902536.17850287,
+      "total_revenue": 45797221349.0,
+      "avg_budget": 34754720.46833014,
+      "avg_rating": 6.434165067178503,
+      "avg_roi": 323.8685482232748
+    },
+    {
+      "genre": "Science Fiction",
+      "count": 535,
+      "avg_revenue": 188770831.48027843,
+      "total_revenue": 81360228368.0,
+      "avg_budget": 62814048.87238979,
+      "avg_rating": 6.163109048723898,
+      "avg_roi": 492.6709917097279
+    },
+    {
+      "genre": "Horror",
+      "count": 519,
+      "avg_revenue": 67727221.62349397,
+      "total_revenue": 22485437579.0,
+      "avg_budget": 20557630.14457831,
+      "avg_rating": 5.902409638554217,
+      "avg_roi": 307642.2677768253
+    },
+    {
+      "genre": "Family",
+      "count": 513,
+      "avg_revenue": 225829865.8958904,
+      "total_revenue": 82427901052.0,
+      "avg_budget": 68241748.50958905,
+      "avg_rating": 6.185479452054794,
+      "avg_roi": 415.75197742066666
+    },
+    {
+      "genre": "Fantasy",
+      "count": 424,
+      "avg_revenue": 238316433.80994153,
+      "total_revenue": 81504220363.0,
+      "avg_budget": 75640923.49122807,
+      "avg_rating": 6.167836257309942,
+      "avg_roi": 481.77783818662215
+    },
+    {
+      "genre": "Mystery",
+      "count": 348,
+      "avg_revenue": 102073902.01886792,
+      "total_revenue": 27049584035.0,
+      "avg_budget": 38765783.58490566,
+      "avg_rating": 6.3641509433962264,
+      "avg_roi": 6676.183694981635
+    },
+    {
+      "genre": "Animation",
+      "count": 234,
+      "avg_revenue": 278917358.90425533,
+      "total_revenue": 52436463474.0,
+      "avg_budget": 80826707.74468085,
+      "avg_rating": 6.446276595744681,
+      "avg_roi": 508.76504915805765
+    },
+    {
+      "genre": "History",
+      "count": 197,
+      "avg_revenue": 77917275.93793103,
+      "total_revenue": 11298005011.0,
+      "avg_budget": 37754867.62758621,
+      "avg_rating": 6.800689655172413,
+      "avg_roi": 304.2293720761768
+    },
+    {
+      "genre": "Music",
+      "count": 185,
+      "avg_revenue": 79063809.9009009,
+      "total_revenue": 8776082899.0,
+      "avg_budget": 23969798.063063063,
+      "avg_rating": 6.526126126126126,
+      "avg_roi": 543.5300854169268
+    },
+    {
+      "genre": "War",
+      "count": 144,
+      "avg_revenue": 100778715.8,
+      "total_revenue": 12093445896.0,
+      "avg_budget": 40984556.28333333,
+      "avg_rating": 6.7925,
+      "avg_roi": 389.9899772843348
+    },
+    {
+      "genre": "Documentary",
+      "count": 110,
+      "avg_revenue": 25831161.184210528,
+      "total_revenue": 981584125.0,
+      "avg_budget": 5422901.657894737,
+      "avg_rating": 6.842105263157895,
+      "avg_roi": 15910.67422341906
+    },
+    {
+      "genre": "Western",
+      "count": 82,
+      "avg_revenue": 65772449.456140354,
+      "total_revenue": 3749029619.0,
+      "avg_budget": 35481642.12280702,
+      "avg_rating": 6.6719298245614045,
+      "avg_roi": 390.1748155645331
+    },
+    {
+      "genre": "Foreign",
+      "count": 34,
+      "avg_revenue": 395152.8,
+      "total_revenue": 1975764.0,
+      "avg_budget": 2645001.4,
+      "avg_rating": 6.2,
+      "avg_roi": -53.92532552380953
+    }
+  ]
+}

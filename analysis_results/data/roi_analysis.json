@@ -1,0 +1,253 @@
+{
+  "statistics": {
+    "mean": 295382.2407898035,
+    "median": 130.03662857142857,
+    "std": 15061009.90964865,
+    "min": -99.99994782608695,
+    "max": 849999900.0,
+    "profitable_count": 2438,
+    "loss_count": 791,
+    "profitable_rate": 75.50325178073707
+  },
+  "distribution": {
+    "盈利100-500%": 1251,
+    "盈利0-100%": 634,
+    "亏损>50%": 412,
+    "亏损0-50%": 379,
+    "盈利500-1000%": 311,
+    "盈利>1000%": 242
+  },
+  "top_roi_movies": [
+    {
+      "title": "Modern Times",
+      "budget": 1,
+      "revenue": 8500000,
+      "roi": 849999900.0,
+      "release_year": 1936.0,
+      "genre_names": [
+        "Drama",
+        "Comedy"
+      ]
+    },
+    {
+      "title": "Nurse 3-D",
+      "budget": 10,
+      "revenue": 10000000,
+      "roi": 99999900.0,
+      "release_year": 2013.0,
+      "genre_names": [
+        "Horror",
+        "Thriller"
+      ]
+    },
+    {
+      "title": "Paranormal Activity",
+      "budget": 15000,
+      "revenue": 193355800,
+      "roi": 1288938.6666666667,
+      "release_year": 2007.0,
+      "genre_names": [
+        "Horror",
+        "Mystery"
+      ]
+    },
+    {
+      "title": "Tarnation",
+      "budget": 218,
+      "revenue": 1162014,
+      "roi": 532933.9449541284,
+      "release_year": 2003.0,
+      "genre_names": [
+        "Documentary",
+        "Drama"
+      ]
+    },
+    {
+      "title": "The Blair Witch Project",
+      "budget": 60000,
+      "revenue": 248000000,
+      "roi": 413233.3333333333,
+      "release_year": 1999.0,
+      "genre_names": [
+        "Horror",
+        "Mystery"
+      ]
+    },
+    {
+      "title": "Eraserhead",
+      "budget": 10000,
+      "revenue": 7000000,
+      "roi": 69900.0,
+      "release_year": 1977.0,
+      "genre_names": [
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Science Fiction"
+      ]
+    },
+    {
+      "title": "Pink Flamingos",
+      "budget": 12000,
+      "revenue": 6000000,
+      "roi": 49900.0,
+      "release_year": 1972.0,
+      "genre_names": [
+        "Horror",
+        "Comedy",
+        "Crime"
+      ]
+    },
+    {
+      "title": "Super Size Me",
+      "budget": 65000,
+      "revenue": 28575078,
+      "roi": 43861.65846153846,
+      "release_year": 2004.0,
+      "genre_names": [
+        "Documentary",
+        "Comedy",
+        "Drama"
+      ]
+    },
+    {
+      "title": "The Gallows",
+      "budget": 100000,
+      "revenue": 42664410,
+      "roi": 42564.409999999996,
+      "release_year": 2015.0,
+      "genre_names": [
+        "Horror",
+        "Thriller"
+      ]
+    },
+    {
+      "title": "Open Water",
+      "budget": 130000,
+      "revenue": 54667954,
+      "roi": 41952.27230769231,
+      "release_year": 2004.0,
+      "genre_names": [
+        "Drama",
+        "Thriller"
+      ]
+    }
+  ],
+  "bottom_roi_movies": [
+    {
+      "title": "Chasing Liberty",
+      "budget": 23000000,
+      "revenue": 12,
+      "roi": -99.99994782608695,
+      "release_year": 2004.0,
+      "genre_names": [
+        "Comedy",
+        "Romance"
+      ]
+    },
+    {
+      "title": "The Cookout",
+      "budget": 16000000,
+      "revenue": 12,
+      "roi": -99.999925,
+      "release_year": 2004.0,
+      "genre_names": [
+        "Comedy",
+        "Drama"
+      ]
+    },
+    {
+      "title": "In the Cut",
+      "budget": 12000000,
+      "revenue": 23,
+      "roi": -99.99980833333333,
+      "release_year": 2003.0,
+      "genre_names": [
+        "Mystery",
+        "Thriller"
+      ]
+    },
+    {
+      "title": "Dreaming of Joseph Lees",
+      "budget": 2000000,
+      "revenue": 7,
+      "roi": -99.99965,
+      "release_year": 1999.0,
+      "genre_names": [
+        "Romance",
+        "Drama"
+      ]
+    },
+    {
+      "title": "Death at a Funeral",
+      "budget": 9000000,
+      "revenue": 46,
+      "roi": -99.99948888888889,
+      "release_year": 2007.0,
+      "genre_names": [
+        "Comedy",
+        "Drama"
+      ]
+    },
+    {
+      "title": "The Adventurer: The Curse of the Midas Box",
+      "budget": 25000000,
+      "revenue": 6399,
+      "roi": -99.97440399999999,
+      "release_year": 2013.0,
+      "genre_names": [
+        "Fantasy",
+        "Adventure",
+        "Family"
+      ]
+    },
+    {
+      "title": "5 Days of War",
+      "budget": 20000000,
+      "revenue": 17479,
+      "roi": -99.912605,
+      "release_year": 2011.0,
+      "genre_names": [
+        "War",
+        "Drama"
+      ]
+    },
+    {
+      "title": "Janky Promoters",
+      "budget": 10000000,
+      "revenue": 9069,
+      "roi": -99.90930999999999,
+      "release_year": 2009.0,
+      "genre_names": [
+        "Comedy"
+      ]
+    },
+    {
+      "title": "Foodfight!",
+      "budget": 65000000,
+      "revenue": 73706,
+      "roi": -99.88660615384616,
+      "release_year": 2012.0,
+      "genre_names": [
+        "Animation",
+        "Action",
+        "Comedy",
+        "Family"
+      ]
+    },
+    {
+      "title": "The Good Night",
+      "budget": 15000000,
+      "revenue": 20380,
+      "roi": -99.86413333333334,
+      "release_year": 2007.0,
+      "genre_names": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Fantasy",
+        "Music"
+      ]
+    }
+  ]
+}

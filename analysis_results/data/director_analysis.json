@@ -1,0 +1,202 @@
+[
+  {
+    "director": "Steven Spielberg",
+    "movie_count": 27,
+    "total_revenue": 9147393164,
+    "avg_revenue": 338792339.4074074,
+    "total_budget": 1667500000,
+    "avg_budget": 61759259.25925926,
+    "avg_rating": 6.974074074074075,
+    "avg_roi": 1021.1087677301119
+  },
+  {
+    "director": "Peter Jackson",
+    "movie_count": 9,
+    "total_revenue": 6498642820,
+    "avg_revenue": 722071424.4444444,
+    "total_budget": 1293000000,
+    "avg_budget": 143666666.66666666,
+    "avg_rating": 7.333333333333333,
+    "avg_roi": 449.3951547992231
+  },
+  {
+    "director": "James Cameron",
+    "movie_count": 7,
+    "total_revenue": 5883569439,
+    "avg_revenue": 840509919.8571428,
+    "total_budget": 746900000,
+    "avg_budget": 106700000.0,
+    "avg_rating": 7.328571428571428,
+    "avg_roi": 656.0511374583415
+  },
+  {
+    "director": "Michael Bay",
+    "movie_count": 12,
+    "total_revenue": 5832524638,
+    "avg_revenue": 486043719.8333333,
+    "total_budget": 1410000000,
+    "avg_budget": 117500000.0,
+    "avg_rating": 6.3999999999999995,
+    "avg_roi": 304.7682728968736
+  },
+  {
+    "director": "Christopher Nolan",
+    "movie_count": 8,
+    "total_revenue": 4227483234,
+    "avg_revenue": 528435404.25,
+    "total_budget": 1005000000,
+    "avg_budget": 125625000.0,
+    "avg_rating": 7.8,
+    "avg_roi": 289.2932008039463
+  },
+  {
+    "director": "Chris Columbus",
+    "movie_count": 9,
+    "total_revenue": 3725631503,
+    "avg_revenue": 413959055.8888889,
+    "total_budget": 609000000,
+    "avg_budget": 67666666.66666667,
+    "avg_rating": 6.722222222222222,
+    "avg_roi": 872.6461244045425
+  },
+  {
+    "director": "Robert Zemeckis",
+    "movie_count": 13,
+    "total_revenue": 3590622002,
+    "avg_revenue": 276201692.46153843,
+    "total_budget": 990000000,
+    "avg_budget": 76153846.15384616,
+    "avg_rating": 6.915384615384616,
+    "avg_roi": 445.99814914910974
+  },
+  {
+    "director": "George Lucas",
+    "movie_count": 5,
+    "total_revenue": 3339113893,
+    "avg_revenue": 667822778.6,
+    "total_budget": 359777000,
+    "avg_budget": 71955400.0,
+    "avg_rating": 6.959999999999999,
+    "avg_roi": 5332.844573980369
+  },
+  {
+    "director": "Tim Burton",
+    "movie_count": 14,
+    "total_revenue": 3337418241,
+    "avg_revenue": 238387017.2142857,
+    "total_budget": 997000000,
+    "avg_budget": 71214285.71428572,
+    "avg_rating": 6.728571428571429,
+    "avg_roi": 232.84583830058435
+  },
+  {
+    "director": "Ridley Scott",
+    "movie_count": 16,
+    "total_revenue": 3189557997,
+    "avg_revenue": 199347374.8125,
+    "total_budget": 1290000000,
+    "avg_budget": 80625000.0,
+    "avg_rating": 6.69375,
+    "avg_roi": 163.54743983423586
+  },
+  {
+    "director": "Gore Verbinski",
+    "movie_count": 7,
+    "total_revenue": 3177013357,
+    "avg_revenue": 453859051.0,
+    "total_budget": 1107000000,
+    "avg_budget": 158142857.14285713,
+    "avg_rating": 6.528571428571429,
+    "avg_roi": 165.693342947909
+  },
+  {
+    "director": "Sam Raimi",
+    "movie_count": 8,
+    "total_revenue": 3132901462,
+    "avg_revenue": 391612682.75,
+    "total_budget": 862950000,
+    "avg_budget": 107868750.0,
+    "avg_rating": 6.5625,
+    "avg_roi": 1212.4352707641933
+  },
+  {
+    "director": "Joss Whedon",
+    "movie_count": 3,
+    "total_revenue": 2963831068,
+    "avg_revenue": 987943689.3333334,
+    "total_budget": 539000000,
+    "avg_budget": 179666666.66666666,
+    "avg_rating": 7.366666666666667,
+    "avg_roi": 330.7677746436896
+  },
+  {
+    "director": "Roland Emmerich",
+    "movie_count": 8,
+    "total_revenue": 2956821040,
+    "avg_revenue": 369602630.0,
+    "total_budget": 868500000,
+    "avg_budget": 108562500.0,
+    "avg_rating": 6.0125,
+    "avg_roi": 216.38104595820707
+  },
+  {
+    "director": "Francis Lawrence",
+    "movie_count": 5,
+    "total_revenue": 2952457182,
+    "avg_revenue": 590491436.4,
+    "total_budget": 603000000,
+    "avg_budget": 120600000.0,
+    "avg_rating": 6.840000000000001,
+    "avg_roi": 370.5161690166869
+  },
+  {
+    "director": "Ron Howard",
+    "movie_count": 11,
+    "total_revenue": 2877390547,
+    "avg_revenue": 261580958.8181818,
+    "total_budget": 894000000,
+    "avg_budget": 81272727.27272727,
+    "avg_rating": 6.672727272727273,
+    "avg_roi": 277.1349945344722
+  },
+  {
+    "director": "Bryan Singer",
+    "movie_count": 8,
+    "total_revenue": 2808235001,
+    "avg_revenue": 351029375.125,
+    "total_budget": 1159000000,
+    "avg_budget": 144875000.0,
+    "avg_rating": 6.65,
+    "avg_roi": 184.09707836831075
+  },
+  {
+    "director": "Sam Mendes",
+    "movie_count": 7,
+    "total_revenue": 2713548809,
+    "avg_revenue": 387649829.85714287,
+    "total_budget": 664000000,
+    "avg_budget": 94857142.85714285,
+    "avg_rating": 6.914285714285714,
+    "avg_roi": 464.63509627456693
+  },
+  {
+    "director": "Andrew Adamson",
+    "movie_count": 4,
+    "total_revenue": 2572706346,
+    "avg_revenue": 643176586.5,
+    "total_budget": 615000000,
+    "avg_budget": 153750000.0,
+    "avg_rating": 6.75,
+    "avg_roi": 405.7725348611111
+  },
+  {
+    "director": "Carlos Saldanha",
+    "movie_count": 4,
+    "total_revenue": 2532451792,
+    "avg_revenue": 633112948.0,
+    "total_budget": 363000000,
+    "avg_budget": 90750000.0,
+    "avg_rating": 6.45,
+    "avg_roi": 608.8718917570119
+  }
+]
