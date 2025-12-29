@@ -1,7 +1,17 @@
 [project]
 name = "film-and-television-data-analysis"
 version = "0.1.0"
-description = "Add your description here"
+description = "TMDB 5000电影数据集分析系统 - 包含ROI分析、票房预测模型和D3.js可视化"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "scikit-learn>=1.4.0",
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.5.0",
+]
+
+[project.scripts]
+serve = "main:run_server"
