@@ -191,12 +191,21 @@
   .page-header h1 {
     font-size: 32px;
     font-weight: 800;
+    color: #1e3a8a;
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
     letter-spacing: -0.5px;
+  }
+  
+  @media (prefers-contrast: high) {
+    .page-header h1 {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: #1e3a8a;
+    }
   }
   
   .page-header p {

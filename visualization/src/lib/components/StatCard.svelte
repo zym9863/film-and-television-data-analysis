@@ -89,8 +89,8 @@
   }
   
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, -6px, 0); }
   }
   
   .stat-content {
@@ -100,13 +100,21 @@
   .stat-value {
     font-size: 30px;
     font-weight: 800;
-    color: #111827;
+    color: #1e3a8a;
     line-height: 1.2;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  @media (prefers-contrast: high) {
+    .stat-value {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: #1e3a8a;
+    }
   }
   
   .stat-label {
