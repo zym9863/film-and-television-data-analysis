@@ -278,52 +278,87 @@
 
 <style>
   .analysis-page {
-    padding: 24px;
+    padding: 32px;
     max-width: 1400px;
     margin: 0 auto;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .page-header {
-    margin-bottom: 24px;
+    margin-bottom: 36px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #3b82f6;
   }
   
   .page-header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #111827;
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
+    letter-spacing: -0.5px;
   }
   
   .page-header p {
     font-size: 15px;
     color: #6b7280;
-    margin: 8px 0 0;
+    margin: 10px 0 0;
+    font-weight: 500;
+    line-height: 1.6;
   }
   
   .tabs-container {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   
   .section-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-    gap: 24px;
+    gap: 28px;
   }
   
   .error-message {
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px;
     color: #ef4444;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   .error-message button {
-    margin-top: 16px;
-    padding: 8px 24px;
-    background: #3b82f6;
+    margin-top: 20px;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .error-message button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
   }
   
   .data-table {
@@ -339,21 +374,26 @@
   }
   
   th, td {
-    padding: 10px 14px;
+    padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid #e5e7eb;
   }
   
   th {
-    font-weight: 600;
+    font-weight: 700;
     color: #6b7280;
-    background: #f9fafb;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
     position: sticky;
     top: 0;
+    letter-spacing: 0.3px;
+  }
+  
+  tr:hover {
+    background: rgba(59, 130, 246, 0.03);
   }
   
   .rank {
-    font-weight: 600;
+    font-weight: 700;
     color: #6b7280;
   }
   
