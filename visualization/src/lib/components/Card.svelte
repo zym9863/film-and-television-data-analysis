@@ -24,31 +24,41 @@
 
 <style>
   .card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-200);
   }
   
   .card-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid #e5e7eb;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--color-gray-50);
   }
   
   .card-title {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.125rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
   }
   
   .card-subtitle {
     margin: 4px 0 0;
-    font-size: 13px;
-    color: #6b7280;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
   }
   
   .card-body {
-    padding: 20px;
+    padding: 24px;
   }
 </style>

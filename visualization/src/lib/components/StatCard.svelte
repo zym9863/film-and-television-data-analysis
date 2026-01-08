@@ -45,16 +45,32 @@
   .stat-card {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    padding: 24px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-200);
   }
   
   .stat-icon {
-    font-size: 32px;
-    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    background: var(--color-primary-50);
+    border-radius: var(--radius-xl);
+    /* 假设 icon 是 emoji，如果后续变为 SVG 可能需要不同处理，这里先通过 font-size 控制 */
+    line-height: 1;
   }
   
   .stat-content {
@@ -62,29 +78,39 @@
   }
   
   .stat-value {
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--text-primary);
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   
   .stat-label {
-    font-size: 13px;
-    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
     margin-top: 4px;
   }
   
   .stat-trend {
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
     font-weight: 600;
-    margin-top: 4px;
+    margin-top: 8px;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: var(--color-gray-50);
   }
   
   .stat-trend.positive {
-    color: #10b981;
+    color: var(--color-success);
+    background: rgba(16, 185, 129, 0.1);
   }
   
   .stat-trend.negative {
-    color: #ef4444;
+    color: var(--color-danger);
+    background: rgba(239, 68, 68, 0.1);
   }
 </style>
