@@ -68,10 +68,10 @@
   
   :global(body) {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
-                 'Helvetica Neue', Arial, sans-serif;
-    background: #f3f4f6;
+                 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
     color: #111827;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   
   .app {
@@ -80,8 +80,8 @@
   }
   
   .sidebar {
-    width: 240px;
-    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    width: 260px;
+    background: linear-gradient(180deg, #1e3a8a 0%, #1e293b 50%, #0f172a 100%);
     color: white;
     display: flex;
     flex-direction: column;
@@ -90,28 +90,39 @@
     left: 0;
     bottom: 0;
     z-index: 100;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   }
   
   .logo {
-    padding: 24px 20px;
+    padding: 28px 24px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
   }
   
   .logo-icon {
-    font-size: 28px;
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
   
   .logo-text {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   
   .nav-list {
     list-style: none;
-    padding: 16px 12px;
+    padding: 20px 14px;
     flex: 1;
   }
   
@@ -119,62 +130,96 @@
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: 14px;
+    padding: 14px 18px;
     border: none;
     background: transparent;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 14px;
     font-weight: 500;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: left;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, #3b82f6, #2563eb);
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-item:hover::before {
+    transform: scaleY(1);
   }
   
   .nav-item.active {
-    background: rgba(59, 130, 246, 0.8);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.8) 100%);
     color: white;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    transform: translateX(4px);
+  }
+  
+  .nav-item.active::before {
+    transform: scaleY(1);
   }
   
   .nav-icon {
-    font-size: 18px;
+    font-size: 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
   }
   
   .sidebar-footer {
-    padding: 16px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.15);
   }
   
   .data-source {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    border-left: 3px solid #3b82f6;
   }
   
   .source-label {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    font-weight: 600;
   }
   
   .source-value {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.3px;
   }
   
   .main-content {
     flex: 1;
-    margin-left: 240px;
+    margin-left: 260px;
     min-height: 100vh;
-    background: #f3f4f6;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
   }
 </style>
