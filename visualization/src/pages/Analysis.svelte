@@ -89,12 +89,52 @@
       value: c.total_revenue
     }))
   );
+
+  let topDirector = $derived(() => directors[0]);
+  let topActor = $derived(() => actors[0]);
+  let topCompany = $derived(() => companies[0]);
+  let topCorrelation = $derived(() => correlations?.top_correlations?.[0]);
 </script>
 
 <div class="analysis-page">
-  <div class="page-header">
-    <h1>🔍 深度分析</h1>
-    <p>导演、演员、制作公司及变量相关性分析</p>
+  <div class="page-hero">
+    <div class="hero-main">
+      <div class="hero-eyebrow">Cinema Intel · Deep Dive</div>
+      <h1>🔍 深度分析</h1>
+      <p>导演、演员、制作公司与核心变量之间的关系洞察。</p>
+      <div class="hero-tags">
+        <span class="tag">导演样本 {directors.length}</span>
+        <span class="tag">演员样本 {actors.length}</span>
+        <span class="tag">公司样本 {companies.length}</span>
+        {#if topCorrelation()}
+          <span class="tag accent">最强相关 {topCorrelation()!.var1} ↔ {topCorrelation()!.var2}</span>
+        {/if}
+      </div>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric-card">
+        <div class="metric-label">票房冠军导演</div>
+        <div class="metric-value">{topDirector()?.director ?? '—'}</div>
+        <div class="metric-sub">{topDirector() ? formatCurrency(topDirector()!.total_revenue) : '—'}</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">票房冠军演员</div>
+        <div class="metric-value">{topActor()?.actor ?? '—'}</div>
+        <div class="metric-sub">{topActor() ? formatCurrency(topActor()!.total_revenue) : '—'}</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">最强公司引擎</div>
+        <div class="metric-value">{topCompany()?.company ?? '—'}</div>
+        <div class="metric-sub">{topCompany() ? formatCurrency(topCompany()!.total_revenue) : '—'}</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">最强相关系数</div>
+        <div class="metric-value mono" class:positive={topCorrelation() && topCorrelation()!.correlation > 0} class:negative={topCorrelation() && topCorrelation()!.correlation < 0}>
+          {topCorrelation() ? topCorrelation()!.correlation.toFixed(3) : '—'}
+        </div>
+        <div class="metric-sub">{topCorrelation() ? `${topCorrelation()!.var1} ↔ ${topCorrelation()!.var2}` : '—'}</div>
+      </div>
+    </div>
   </div>
   
   <div class="tabs-container">
@@ -278,52 +318,154 @@
 
 <style>
   .analysis-page {
-    padding: 24px;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
-  
-  .page-header {
-    margin-bottom: 24px;
+
+  .page-hero {
+    display: grid;
+    grid-template-columns: minmax(320px, 1.2fr) minmax(260px, 1fr);
+    gap: 20px;
+    align-items: stretch;
   }
-  
-  .page-header h1 {
-    font-size: 28px;
+
+  .hero-main {
+    padding: 24px;
+    border-radius: 20px;
+    background: linear-gradient(150deg, rgba(29, 24, 21, 0.98), rgba(12, 10, 9, 0.98));
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(360px 200px at 0% 0%, rgba(209, 164, 90, 0.35), transparent 70%);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .hero-main h1 {
+    font-size: 30px;
     font-weight: 700;
-    color: #111827;
-    margin: 0;
+    margin: 0 0 8px;
+    color: var(--text);
+    font-family: var(--font-display);
+    letter-spacing: 0.6px;
   }
-  
-  .page-header p {
-    font-size: 15px;
-    color: #6b7280;
-    margin: 8px 0 0;
+
+  .hero-main p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .tag.accent {
+    color: #1b1309;
+    background: linear-gradient(135deg, #f0d7a7, #d1a45a);
+    border-color: rgba(209, 164, 90, 0.6);
+    font-weight: 600;
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .metric-card {
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: linear-gradient(160deg, rgba(24, 20, 18, 0.98), rgba(15, 12, 10, 0.98));
+    border: 1px solid rgba(209, 164, 90, 0.2);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .metric-value.mono {
+    font-family: var(--font-mono);
+    font-size: 20px;
+  }
+
+  .metric-sub {
+    font-size: 12px;
+    color: var(--muted);
   }
   
   .tabs-container {
-    margin-bottom: 24px;
+    margin-top: 4px;
   }
   
   .section-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     gap: 24px;
   }
   
   .error-message {
     text-align: center;
     padding: 40px;
-    color: #ef4444;
+    color: var(--negative);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 122, 122, 0.35);
+    border-radius: 16px;
   }
   
   .error-message button {
     margin-top: 16px;
     padding: 8px 24px;
-    background: #3b82f6;
-    color: white;
+    background: linear-gradient(135deg, #f0d7a7, #d1a45a);
+    color: #1b1309;
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     cursor: pointer;
+    font-weight: 600;
   }
   
   .data-table {
@@ -336,25 +478,30 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
+    color: var(--text);
   }
   
   th, td {
     padding: 10px 14px;
     text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
   
   th {
     font-weight: 600;
-    color: #6b7280;
-    background: #f9fafb;
+    color: var(--muted);
+    background: rgba(209, 164, 90, 0.08);
     position: sticky;
     top: 0;
+  }
+
+  tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
   }
   
   .rank {
     font-weight: 600;
-    color: #6b7280;
+    color: var(--muted);
   }
   
   .name {
@@ -366,11 +513,11 @@
   }
   
   .positive {
-    color: #10b981;
+    color: var(--positive);
   }
   
   .negative {
-    color: #ef4444;
+    color: var(--negative);
   }
   
   .correlation-list {
@@ -384,14 +531,15 @@
     align-items: center;
     gap: 16px;
     padding: 12px 16px;
-    background: #f9fafb;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   
   .corr-rank {
     font-size: 12px;
     font-weight: 600;
-    color: #6b7280;
+    color: var(--muted);
     width: 28px;
   }
   
@@ -403,20 +551,27 @@
   }
   
   .var {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     padding: 4px 10px;
-    background: white;
-    border-radius: 4px;
-    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   
   .arrow {
-    color: #9ca3af;
+    color: var(--muted);
   }
   
   .corr-value {
     font-size: 15px;
     font-weight: 700;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 1100px) {
+    .page-hero {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -29,9 +29,9 @@
   let tooltipElement: HTMLDivElement;
   
   const colors = [
-    '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1',
-    '#ec4899', '#14b8a6', '#f97316', '#8b5cf6', '#06b6d4',
-    '#84cc16', '#eab308', '#22c55e', '#a855f7', '#0ea5e9'
+    '#d1a45a', '#79d2c5', '#f0d7a7', '#ff7a7a', '#8ab4f8',
+    '#c58bd3', '#f2b87a', '#7aa7ff', '#9ad48f', '#f4a3a3',
+    '#d6b37e', '#8cd6b1', '#f5c784', '#d38cff', '#6fbbe3'
   ];
   
   $effect(() => {
@@ -78,8 +78,8 @@
       .attr('d', arc)
       .attr('fill', d => d.data.color || colorScale(d.data.label))
       .style('cursor', 'pointer')
-      .style('stroke', 'white')
-      .style('stroke-width', 2)
+      .style('stroke', 'rgba(15, 12, 10, 0.85)')
+      .style('stroke-width', 1.5)
       .on('mouseover', function(event, d) {
         d3.select(this)
           .transition()
@@ -118,7 +118,7 @@
         .attr('transform', d => `translate(${labelArc.centroid(d)})`)
         .attr('text-anchor', 'middle')
         .style('font-size', '11px')
-        .style('fill', 'white')
+        .style('fill', '#f7f2e9')
         .style('font-weight', 'bold')
         .style('pointer-events', 'none')
         .text(d => {
@@ -148,6 +148,7 @@
         .attr('x', 20)
         .attr('y', 11)
         .style('font-size', '11px')
+        .style('fill', 'rgba(247, 242, 233, 0.7)')
         .text(d => {
           const label = d.label.length > 15 ? d.label.substring(0, 15) + '...' : d.label;
           return label;
@@ -171,12 +172,13 @@
   }
   
   .tooltip {
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
+    background: rgba(17, 14, 12, 0.95);
+    color: #f7f2e9;
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 12px;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(209, 164, 90, 0.3);
   }
 </style>

@@ -37,10 +37,11 @@
   .spinner {
     width: 40px;
     height: 40px;
-    border: 4px solid #e5e7eb;
-    border-top-color: #3b82f6;
+    border: 4px solid rgba(209, 164, 90, 0.18);
+    border-top-color: var(--accent);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    box-shadow: 0 0 18px rgba(209, 164, 90, 0.35);
   }
   
   .sm .spinner {
@@ -56,8 +57,11 @@
   }
   
   .loader-text {
-    font-size: 14px;
-    color: #6b7280;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
   }
   
   @keyframes spin {

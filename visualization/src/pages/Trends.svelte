@@ -61,7 +61,7 @@
     trendsData?.monthly?.map(m => ({
       label: m.month_name,
       value: m.avg_roi,
-      color: m.avg_roi >= 0 ? '#10b981' : '#ef4444'
+      color: m.avg_roi >= 0 ? '#7fd7c4' : '#ff7a7a'
     })) || []
   );
 </script>
@@ -169,25 +169,29 @@
 
 <style>
   .trends-page {
-    padding: 24px;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
   
   .page-header {
-    margin-bottom: 32px;
+    margin-bottom: 8px;
   }
   
   .page-header h1 {
     font-size: 28px;
     font-weight: 700;
-    color: #111827;
+    color: var(--text);
     margin: 0;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
   }
   
   .page-header p {
-    font-size: 15px;
-    color: #6b7280;
+    font-size: 14px;
+    color: var(--muted);
     margin: 8px 0 0;
   }
   
@@ -200,17 +204,21 @@
   .error-message {
     text-align: center;
     padding: 40px;
-    color: #ef4444;
+    color: var(--negative);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 122, 122, 0.35);
+    border-radius: 16px;
   }
   
   .error-message button {
     margin-top: 16px;
     padding: 8px 24px;
-    background: #3b82f6;
-    color: white;
+    background: linear-gradient(135deg, #f0d7a7, #d1a45a);
+    color: #1b1309;
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     cursor: pointer;
+    font-weight: 600;
   }
   
   .data-table {
@@ -223,18 +231,19 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
+    color: var(--text);
   }
   
   th, td {
     padding: 10px 14px;
     text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
   
   th {
     font-weight: 600;
-    color: #6b7280;
-    background: #f9fafb;
+    color: var(--muted);
+    background: rgba(209, 164, 90, 0.08);
     position: sticky;
     top: 0;
   }

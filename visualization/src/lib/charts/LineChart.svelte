@@ -39,7 +39,10 @@
   
   let svgElement: SVGSVGElement;
   
-  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1', '#ec4899'];
+  const colors = ['#d1a45a', '#79d2c5', '#f0d7a7', '#ff7a7a', '#8ab4f8', '#c58bd3'];
+  const axisTextColor = 'rgba(247, 242, 233, 0.65)';
+  const axisLineColor = 'rgba(247, 242, 233, 0.18)';
+  const gridLineColor = 'rgba(247, 242, 233, 0.12)';
   
   $effect(() => {
     if (!svgElement || !data || data.length === 0) return;
@@ -81,7 +84,7 @@
       .attr('class', 'grid')
       .call(d3.axisLeft(y).tickSize(-innerWidth).tickFormat(() => ''))
       .selectAll('line')
-      .style('stroke', '#e5e7eb')
+      .style('stroke', gridLineColor)
       .style('stroke-dasharray', '3,3');
     
     // X轴
@@ -89,17 +92,28 @@
       ? d3.axisBottom(x as d3.ScaleLinear<number, number>).ticks(10)
       : d3.axisBottom(x as d3.ScalePoint<string>);
     
-    g.append('g')
+    const xAxisGroup = g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
       .call(xAxis)
-      .selectAll('text')
-      .style('font-size', '11px');
+      ;
+    
+    xAxisGroup.selectAll('text')
+      .style('font-size', '11px')
+      .style('fill', axisTextColor);
+    
+    xAxisGroup.selectAll('path, line')
+      .style('stroke', axisLineColor);
     
     // Y轴
-    g.append('g')
-      .call(d3.axisLeft(y).ticks(6).tickFormat(d => formatY(d as number)))
-      .selectAll('text')
-      .style('font-size', '11px');
+    const yAxisGroup = g.append('g')
+      .call(d3.axisLeft(y).ticks(6).tickFormat(d => formatY(d as number)));
+    
+    yAxisGroup.selectAll('text')
+      .style('font-size', '11px')
+      .style('fill', axisTextColor);
+    
+    yAxisGroup.selectAll('path, line')
+      .style('stroke', axisLineColor);
     
     // 线条生成器
     const line = d3.line<LineData>()
@@ -166,6 +180,7 @@
           .attr('x', innerWidth + 28)
           .attr('y', i * 20 + 10)
           .style('font-size', '11px')
+          .style('fill', axisTextColor)
           .text(seriesName);
         
         i++;
@@ -219,7 +234,7 @@
         .attr('cy', d => y(d.y))
         .attr('r', 4)
         .style('fill', colors[0])
-        .style('stroke', 'white')
+        .style('stroke', 'rgba(11, 10, 8, 0.85)')
         .style('stroke-width', 2);
     }
     
@@ -229,8 +244,8 @@
         .attr('x', width / 2)
         .attr('y', height - 5)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(xLabel);
     }
     
@@ -241,8 +256,8 @@
         .attr('x', -height / 2)
         .attr('y', 15)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(yLabel);
     }
   });

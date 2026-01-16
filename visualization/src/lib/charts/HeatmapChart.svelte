@@ -26,7 +26,7 @@
     marginRight = 80,
     marginBottom = 80,
     marginLeft = 100,
-    colorRange = ['#ef4444', '#fef3c7', '#10b981']
+    colorRange = ['#ff7a7a', '#2a231c', '#7fd7c4']
   }: Props = $props();
   
   let svgElement: SVGSVGElement;
@@ -66,19 +66,29 @@
       .range(colorRange);
     
     // X轴
-    g.append('g')
+    const xAxisGroup = g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x))
-      .selectAll('text')
+      .call(d3.axisBottom(x));
+    
+    xAxisGroup.selectAll('text')
       .attr('transform', 'rotate(-45)')
       .style('text-anchor', 'end')
-      .style('font-size', '10px');
+      .style('font-size', '10px')
+      .style('fill', 'rgba(247, 242, 233, 0.65)');
+    
+    xAxisGroup.selectAll('path, line')
+      .style('stroke', 'rgba(247, 242, 233, 0.18)');
     
     // Y轴
-    g.append('g')
-      .call(d3.axisLeft(y))
-      .selectAll('text')
-      .style('font-size', '10px');
+    const yAxisGroup = g.append('g')
+      .call(d3.axisLeft(y));
+    
+    yAxisGroup.selectAll('text')
+      .style('font-size', '10px')
+      .style('fill', 'rgba(247, 242, 233, 0.65)');
+    
+    yAxisGroup.selectAll('path, line')
+      .style('stroke', 'rgba(247, 242, 233, 0.18)');
     
     // 热力图格子
     g.selectAll('.cell')
@@ -93,7 +103,7 @@
       .attr('rx', 2)
       .style('cursor', 'pointer')
       .on('mouseover', function(event, d) {
-        d3.select(this).style('stroke', '#000').style('stroke-width', 2);
+        d3.select(this).style('stroke', '#d1a45a').style('stroke-width', 2);
         
         if (tooltipElement) {
           tooltipElement.style.display = 'block';
@@ -122,7 +132,7 @@
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
       .style('font-size', '9px')
-      .style('fill', d => Math.abs(d.value) > 0.5 ? 'white' : '#333')
+      .style('fill', d => Math.abs(d.value) > 0.5 ? '#f7f2e9' : 'rgba(247, 242, 233, 0.7)')
       .text(d => d.value.toFixed(2));
     
     // 颜色图例
@@ -168,7 +178,8 @@
       .attr('transform', `translate(${legendWidth},0)`)
       .call(legendAxis)
       .selectAll('text')
-      .style('font-size', '10px');
+      .style('font-size', '10px')
+      .style('fill', 'rgba(247, 242, 233, 0.65)');
   });
 </script>
 
@@ -187,12 +198,13 @@
   }
   
   .tooltip {
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
+    background: rgba(17, 14, 12, 0.95);
+    color: #f7f2e9;
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 12px;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(209, 164, 90, 0.3);
   }
 </style>

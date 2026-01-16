@@ -47,30 +47,53 @@
     align-items: center;
     gap: 16px;
     padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(150deg, rgba(26, 22, 19, 0.98), rgba(16, 13, 11, 0.98));
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(260px 120px at 0% 0%, rgba(121, 210, 197, 0.2), transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
   }
   
   .stat-icon {
-    font-size: 32px;
-    opacity: 0.8;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    color: var(--accent);
+    background: rgba(209, 164, 90, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(209, 164, 90, 0.4);
+    z-index: 1;
   }
   
   .stat-content {
     flex: 1;
+    position: relative;
+    z-index: 1;
   }
   
   .stat-value {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
-    color: #111827;
+    color: var(--text);
+    font-family: var(--font-display);
     line-height: 1.2;
   }
   
   .stat-label {
-    font-size: 13px;
-    color: #6b7280;
+    font-size: 12px;
+    color: var(--muted);
     margin-top: 4px;
   }
   
@@ -78,13 +101,14 @@
     font-size: 12px;
     font-weight: 600;
     margin-top: 4px;
+    letter-spacing: 0.4px;
   }
   
   .stat-trend.positive {
-    color: #10b981;
+    color: var(--positive);
   }
   
   .stat-trend.negative {
-    color: #ef4444;
+    color: var(--negative);
   }
 </style>

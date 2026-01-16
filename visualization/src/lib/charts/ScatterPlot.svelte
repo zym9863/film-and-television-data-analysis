@@ -42,7 +42,10 @@
   let svgElement: SVGSVGElement;
   let tooltipElement: HTMLDivElement;
   
-  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1'];
+  const colors = ['#d1a45a', '#79d2c5', '#f0d7a7', '#ff7a7a', '#8ab4f8'];
+  const axisTextColor = 'rgba(247, 242, 233, 0.65)';
+  const axisLineColor = 'rgba(247, 242, 233, 0.18)';
+  const gridLineColor = 'rgba(247, 242, 233, 0.12)';
   
   $effect(() => {
     if (!svgElement || !data || data.length === 0) return;
@@ -74,28 +77,38 @@
       .attr('transform', `translate(0,${innerHeight})`)
       .call(d3.axisBottom(x).tickSize(-innerHeight).tickFormat(() => ''))
       .selectAll('line')
-      .style('stroke', '#e5e7eb')
+      .style('stroke', gridLineColor)
       .style('stroke-dasharray', '3,3');
     
     g.append('g')
       .attr('class', 'grid')
       .call(d3.axisLeft(y).tickSize(-innerWidth).tickFormat(() => ''))
       .selectAll('line')
-      .style('stroke', '#e5e7eb')
+      .style('stroke', gridLineColor)
       .style('stroke-dasharray', '3,3');
     
     // X轴
-    g.append('g')
+    const xAxisGroup = g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x).ticks(6).tickFormat(d => formatX(d as number)))
-      .selectAll('text')
-      .style('font-size', '11px');
+      .call(d3.axisBottom(x).ticks(6).tickFormat(d => formatX(d as number)));
+    
+    xAxisGroup.selectAll('text')
+      .style('font-size', '11px')
+      .style('fill', axisTextColor);
+    
+    xAxisGroup.selectAll('path, line')
+      .style('stroke', axisLineColor);
     
     // Y轴
-    g.append('g')
-      .call(d3.axisLeft(y).ticks(6).tickFormat(d => formatY(d as number)))
-      .selectAll('text')
-      .style('font-size', '11px');
+    const yAxisGroup = g.append('g')
+      .call(d3.axisLeft(y).ticks(6).tickFormat(d => formatY(d as number)));
+    
+    yAxisGroup.selectAll('text')
+      .style('font-size', '11px')
+      .style('fill', axisTextColor);
+    
+    yAxisGroup.selectAll('path, line')
+      .style('stroke', axisLineColor);
     
     // 趋势线
     if (showTrendLine && data.length > 1) {
@@ -122,7 +135,7 @@
         .attr('y1', y(y1))
         .attr('x2', x(x2))
         .attr('y2', y(y2))
-        .style('stroke', '#ef4444')
+        .style('stroke', '#d1a45a')
         .style('stroke-width', 2)
         .style('stroke-dasharray', '5,5')
         .style('opacity', 0.7);
@@ -142,7 +155,9 @@
       .attr('cy', d => y(d.y))
       .attr('r', d => d.size || 5)
       .style('fill', d => d.category ? colorScale(d.category) : colors[0])
-      .style('opacity', 0.7)
+      .style('opacity', 0.75)
+      .style('stroke', 'rgba(15, 12, 10, 0.55)')
+      .style('stroke-width', 1)
       .style('cursor', 'pointer')
       .on('mouseover', function(event, d) {
         d3.select(this)
@@ -176,8 +191,8 @@
         .attr('x', width / 2)
         .attr('y', height - 5)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(xLabel);
     }
     
@@ -188,8 +203,8 @@
         .attr('x', -height / 2)
         .attr('y', 15)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(yLabel);
     }
   });
@@ -210,12 +225,13 @@
   }
   
   .tooltip {
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
+    background: rgba(17, 14, 12, 0.95);
+    color: #f7f2e9;
     padding: 8px 12px;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 12px;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(209, 164, 90, 0.3);
   }
 </style>

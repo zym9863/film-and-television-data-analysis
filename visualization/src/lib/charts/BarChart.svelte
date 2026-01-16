@@ -37,8 +37,12 @@
   
   let svgElement: SVGSVGElement;
   
-  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#6366f1', 
-                  '#ec4899', '#14b8a6', '#f97316', '#8b5cf6', '#06b6d4'];
+  const colors = [
+    '#d1a45a', '#79d2c5', '#f0d7a7', '#ff7a7a', '#8ab4f8',
+    '#c58bd3', '#f2b87a', '#7aa7ff', '#9ad48f', '#f4a3a3'
+  ];
+  const axisTextColor = 'rgba(247, 242, 233, 0.65)';
+  const axisLineColor = 'rgba(247, 242, 233, 0.18)';
   
   $effect(() => {
     if (!svgElement || !data || data.length === 0) return;
@@ -65,17 +69,27 @@
         .padding(0.2);
       
       // X轴
-      g.append('g')
+      const xAxis = g.append('g')
         .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(x).ticks(5).tickFormat(d => formatValue(d as number)))
-        .selectAll('text')
-        .style('font-size', '12px');
+        .call(d3.axisBottom(x).ticks(5).tickFormat(d => formatValue(d as number)));
+      
+      xAxis.selectAll('text')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor);
+      
+      xAxis.selectAll('path, line')
+        .style('stroke', axisLineColor);
       
       // Y轴
-      g.append('g')
-        .call(d3.axisLeft(y))
-        .selectAll('text')
-        .style('font-size', '12px');
+      const yAxis = g.append('g')
+        .call(d3.axisLeft(y));
+      
+      yAxis.selectAll('text')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor);
+      
+      yAxis.selectAll('path, line')
+        .style('stroke', axisLineColor);
       
       // 条形
       g.selectAll('.bar')
@@ -101,7 +115,7 @@
         .attr('x', d => x(d.value) + 5)
         .attr('dy', '0.35em')
         .style('font-size', '11px')
-        .style('fill', '#666')
+        .style('fill', axisTextColor)
         .text(d => formatValue(d.value));
         
     } else {
@@ -116,19 +130,29 @@
         .range([innerHeight, 0]);
       
       // X轴
-      g.append('g')
+      const xAxis = g.append('g')
         .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(x))
-        .selectAll('text')
+        .call(d3.axisBottom(x));
+      
+      xAxis.selectAll('text')
         .attr('transform', 'rotate(-45)')
         .style('text-anchor', 'end')
-        .style('font-size', '11px');
+        .style('font-size', '11px')
+        .style('fill', axisTextColor);
+      
+      xAxis.selectAll('path, line')
+        .style('stroke', axisLineColor);
       
       // Y轴
-      g.append('g')
-        .call(d3.axisLeft(y).ticks(5).tickFormat(d => formatValue(d as number)))
-        .selectAll('text')
-        .style('font-size', '12px');
+      const yAxis = g.append('g')
+        .call(d3.axisLeft(y).ticks(5).tickFormat(d => formatValue(d as number)));
+      
+      yAxis.selectAll('text')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor);
+      
+      yAxis.selectAll('path, line')
+        .style('stroke', axisLineColor);
       
       // 条形
       g.selectAll('.bar')
@@ -153,8 +177,8 @@
         .attr('x', width / 2)
         .attr('y', height - 5)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(xLabel);
     }
     
@@ -165,8 +189,8 @@
         .attr('x', -height / 2)
         .attr('y', 15)
         .attr('text-anchor', 'middle')
-        .style('font-size', '13px')
-        .style('fill', '#666')
+        .style('font-size', '12px')
+        .style('fill', axisTextColor)
         .text(yLabel);
     }
   });

@@ -168,55 +168,63 @@
 
 <style>
   .overview-page {
-    padding: 24px;
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
   
   .page-header {
-    margin-bottom: 32px;
+    margin-bottom: 8px;
   }
   
   .page-header h1 {
     font-size: 28px;
     font-weight: 700;
-    color: #111827;
+    color: var(--text);
     margin: 0;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
   }
   
   .page-header p {
-    font-size: 15px;
-    color: #6b7280;
+    font-size: 14px;
+    color: var(--muted);
     margin: 8px 0 0;
   }
   
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
+    gap: 18px;
+    margin-bottom: 16px;
   }
   
   .charts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
     gap: 24px;
   }
   
   .error-message {
     text-align: center;
     padding: 40px;
-    color: #ef4444;
+    color: var(--negative);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 122, 122, 0.35);
+    border-radius: 16px;
   }
   
   .error-message button {
     margin-top: 16px;
     padding: 8px 24px;
-    background: #3b82f6;
-    color: white;
+    background: linear-gradient(135deg, #f0d7a7, #d1a45a);
+    color: #1b1309;
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     cursor: pointer;
+    font-weight: 600;
   }
   
   .movie-list {
@@ -230,14 +238,15 @@
     align-items: center;
     gap: 16px;
     padding: 12px 16px;
-    background: #f9fafb;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
   
   .rank {
     font-size: 14px;
     font-weight: 700;
-    color: #6b7280;
+    color: var(--muted);
     width: 32px;
   }
   
@@ -248,22 +257,22 @@
   .movie-title {
     font-size: 14px;
     font-weight: 600;
-    color: #111827;
+    color: var(--text);
   }
   
   .movie-meta {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--muted);
     margin-top: 2px;
   }
   
   .movie-roi {
     font-size: 16px;
     font-weight: 700;
-    color: #10b981;
+    color: var(--positive);
   }
   
   .movie-roi.positive {
-    color: #10b981;
+    color: var(--positive);
   }
 </style>
